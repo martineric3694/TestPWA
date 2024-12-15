@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Static Page</title>
+    <link rel="stylesheet" href="asset/style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#333333">
+
+</head>
+<body>
+    <header>
+        <h1>Responsive Static Page</h1>
+        <p>Welcome to our website</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <div class="container">
+        <aside>
+            <h2>Side Menu</h2>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+                <li><a href="#">Link 4</a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <article>
+                <h2>Article Title 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec est id nulla eleifend venenatis.</p>
+            </article>
+            <article>
+                <h2>Article Title 2</h2>
+                <p>Phasellus finibus leo et metus vehicula, ac vehicula justo facilisis. Donec tristique elit ut dui convallis luctus.</p>
+            </article>
+
+            <section>
+                <h2>Data Table</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>City</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>30</td>
+                            <td>New York</td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>25</td>
+                            <td>London</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section>
+                <h2>Contact Form</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="4" placeholder="Your Message" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Responsive Static Page. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+    })}
+</script>
+</html>
