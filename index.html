@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Static Page</title>
-    <link rel="stylesheet" href="asset/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#333333">
 
 </head>
+
 <body>
     <header>
         <h1>Responsive Static Page</h1>
@@ -36,33 +38,37 @@
         <main>
             <article>
                 <h2>Article Title 1</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec est id nulla eleifend venenatis.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec est id nulla eleifend venenatis.
+                </p>
             </article>
+            <h1>Download File</h1>
+            <button id="download-btn">Download File</button>
             <article>
                 <h2>Article Title 2</h2>
-                <p>Phasellus finibus leo et metus vehicula, ac vehicula justo facilisis. Donec tristique elit ut dui convallis luctus.</p>
+                <p>Phasellus finibus leo et metus vehicula, ac vehicula justo facilisis. Donec tristique elit ut dui
+                    convallis luctus.</p>
             </article>
 
             <section>
                 <h2>Data Table</h2>
-                <table>
+                <label for="status-filter">Filter by Column:</label>
+                <select id="status-filter" onchange="filterTableByStatus(this.value)">
+                    <option value="all">All</option>
+                    <option value="false">Not Completed</option>
+                    <option value="true">Completed</option>
+                </select>
+                <table id="todo-table">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>City</th>
+                            <th>UserID</th>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Completed</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>John Doe</td>
-                            <td>30</td>
-                            <td>New York</td>
-                        </tr>
-                        <tr>
-                            <td>Jane Smith</td>
-                            <td>25</td>
-                            <td>London</td>
+                            <td colspan="4" style="text-align: center;">No Data Found</td>
                         </tr>
                     </tbody>
                 </table>
@@ -86,14 +92,17 @@
 </body>
 <script>
     if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/service-worker.js')
-            .then(registration => {
-                console.log('Service Worker registered with scope:', registration.scope);
-            })
-            .catch(error => {
-                console.error('Service Worker registration failed:', error);
-            });
-    })}
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('service-worker.js')
+                .then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                })
+                .catch(error => {
+                    console.error('Service Worker registration failed:', error);
+                });
+        })
+    }
 </script>
+<script src="/js/main.js"></script>
+
 </html>
